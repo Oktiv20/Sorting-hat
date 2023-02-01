@@ -28,8 +28,8 @@ In the end, your app will look something like:
 ![screencapture-drt-sorting-netlify-app-2022-04-23-14_28_47](https://user-images.githubusercontent.com/29741570/164943525-d20275be-c312-42d1-9730-0c1fd3fd9834.png)
 
 
-<!-- [See Demo](https://drt-sortinghat.netlify.app/)
- -->
+[See Demo](https://drt-sortinghat.netlify.app/)
+
 ## Technical Requirements
 - You MUST plan your project and create issue tickets and a project board for your project
 - You MAY use the `renderToDom()` function that we worked on in class, but you also need to be able to explain it if you use it
@@ -54,4 +54,3 @@ Think of a way you can expel students without just hiding those divs on the page
 ## Optional Bonus
 - House Colors: The color of the student's card changes depending on which house they were sorted.
 - Card Sorting/Ordering: Sort the student cards by some criteria (i.e. alphabetically by name, by house)
-
