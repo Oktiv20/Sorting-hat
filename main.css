@@ -1,0 +1,72 @@
+.btn-group {
+  display: flex;
+  justify-content: center;
+}
+
+#firstYearContainter {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  margin-top: 2%;
+  flex-direction: row;
+}
+
+.card-header {
+  text-align: center;
+  font-size: 50px;
+  color: black;
+  font-weight: bold;
+}
+
+#sortingHat {
+  text-align: center;
+}
+
+.card {
+  margin-bottom: 30px;
+  text-align: center;
+}
+
+#studentInput {
+  text-align: center;
+}
+
+.form-control {
+  width: 20%;
+  margin-left: 40%;
+}
+
+#all-btn {
+  background-color: gray;
+  color: black;
+  border-color: black;
+  border-style: solid;
+}
+
+#gryffindor-btn {
+  background-color: red;
+  color: black;
+  border-color: black;
+  border-style: solid;
+}
+
+#hufflepuff-btn {
+  background-color: yellow;
+  color: black;
+  border-color: black;
+  border-style: solid;
+}
+
+#ravenclaw-btn {
+  background-color: purple;
+  color: black;
+  border-color: black;
+  border-style: solid;
+}
+
+#slytherin-btn {
+  background-color: green;
+  color: black;
+  border-color: black;
+  border-style: solid;
+}
