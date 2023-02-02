@@ -1,52 +1,84 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
-  <!-- Bootsrap css -->
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
-  <!-- Main CSS -->
-  <link rel="stylesheet" href="main.css">
-</head>
-<body>
-  <header>
-    <div id="sortingHat">
-      <h1 class="card-header">HOGWARTS</h1>
-      <h5 class="card-title">Welcome to the Sorting Hat!</h5>
-      <p class="card-text">Press the button to get started</p>
-      <a href="#" class="btn btn-primary">Go!</a>
-    </div>
-    <form>
-      <div id="studentInput">
-        <p class="first-year">Enter First Year's Name</p>
-        <div class="floating-form mb-3">
-          <input type="text" class="form-control" id="name" placeholder="Name" required>
-          <label for="floatingInput">Student:</label>
-          <!-- Sort Button -->
-          <button type="submit" class="btn btn-primary" id="form-submit">Sort!</button>
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Hogwarts' Sorting Hat</title>
+    <!-- Bootsrap css -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD"
+      crossorigin="anonymous"
+    />
+    <!-- Main CSS -->
+    <link rel="stylesheet" href="main.css" />
+  </head>
+  <body>
+    <header>
+      <!-- CODE FOR HEADER -->
+      <div id="sortingHat">
+        <h1 class="card-header">HOGWARTS</h1>
+        <h5 class="card-title">Welcome new First Year Students!!</h5>
+        <p class="card-text">
+          Before you can start classes, the Sorting Hat must decide where you
+          belong!
+        </p>
+        <button class="btn btn-primary" id="showForm" type="submit">Go!</button>
+      </div>
+      <!-- HTML CODE TO HIDE FORM -->
+      <div id="show" style="display: none">
+        <form>
+          <div id="studentInput" class="hideForm">
+            <p class="first-year">Enter First Year's Name</p>
+            <div class="floating-form mb-3">
+              <label for="floatingInput">Student:</label>
+              <input type="text" class="form-control" id="name" placeholder="Name" required/>
+              <!-- Sort Button -->
+              <button type="submit" class="btn btn-primary" id="form-submit">
+                Sort!
+              </button>
+            </div>
+          </div>
+        </form>
+        <!-- Sorting Button Group -->
+        <p class="filterStudent">Filter Students</p>
+        <div class="filterContainer">
+          <div class="btn-group" role="group" aria-label="Basic example">
+            <button type="button" id="all-btn" class="btn btn-secondary">
+              All
+            </button>
+            <button type="button" id="gryffindor-btn" class="btn btn-secondary">
+              Gryffindor
+            </button>
+            <button type="button" id="hufflepuff-btn" class="btn btn-secondary">
+              Hufflepuff
+            </button>
+            <button type="button" id="ravenclaw-btn" class="btn btn-secondary">
+              Ravenclaw
+            </button>
+            <button type="button" id="slytherin-btn" class="btn btn-secondary">
+              Slytherin
+            </button>
+          </div>
+        </div>
+        <div class="allContainers">
+          <div id="firstYearContainter">
+            <p class="firstYearText">FIRST YEAR STUDENTS</p>
+          </div>
+          <div id="voldemortsContainer">
+            <P class="voldemortText">VOLDEMORT'S ARMY</P>
+          </div>
         </div>
       </div>
-    </form>
-    <!-- Sorting Button Group -->
-    <p class="filterStudent">Filter Students</p>
-      <div class="filterContainer">
-        <div class="btn-group" role="group" aria-label="Basic example">
-          <button type="button" id="all-btn" class="btn btn-secondary">All</button>
-          <button type="button" id="gryffindor-btn" class="btn btn-secondary">Gryffindor</button>
-          <button type="button" id="hufflepuff-btn" class="btn btn-secondary">Hufflepuff</button>
-          <button type="button" id="ravenclaw-btn" class="btn btn-secondary">Ravenclaw</button>
-          <button type="button" id="slytherin-btn" class="btn btn-secondary">Slytherin</button>
-        </div>
-      </div>
-  </header>
-    <div class="allContainer">
-      <div id="firstYearContainter"></div>
-      <div id="voldemortsContainer"></div>
-    </div>
-  <script 
-    src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script> 
-  <script src="main.js"></script>
-</body>
+    </header>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
+      crossorigin="anonymous"
+    ></script>
+    <script src="main.js"></script>
+  </body>
 </html>
+        
