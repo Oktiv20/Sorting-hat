@@ -1,6 +1,57 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+
+body {
+  background-image: url(images/hogwartsgreathall.jpg);
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+}
+
+.card-header {
+  text-align: center;
+  font-size: 70px;
+  color: white;
+  font-weight: bold;
+}
+
+.card-title {
+  text-align: center;
+  font-size: 30px;
+  color: white;
+  font-weight: bold;
+  margin-bottom: 3%;
+}
+
+.card-text {
+  text-align: center;
+  font-size: 20px;
+  color: white;
+  font-weight: bold;
+}
+
+.filterStudent {
+  text-align: center;
+  font-size: 20px;
+  color: white;
+  font-weight: bold;
+}
+
+#sortingHat {
+  text-align: center;
+}
+
 .btn-group {
   display: flex;
   justify-content: center;
+}
+
+.allContainers {
+  display: flex;
+  justify-content: space-around;
 }
 
 #firstYearContainter {
@@ -9,17 +60,41 @@
   justify-content: flex-start;
   margin-top: 2%;
   flex-direction: row;
+  height: auto;
+  width: auto;
+  border-style: outset;
+  border-width: 10px;
+  box-sizing: border-box;
+  border-color: goldenrod;
+  border-radius: 10px;
+  padding: 5px;
+  border-top-width: 10px;
 }
 
-.card-header {
+#voldemortsContainer {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  margin-top: 2%;
+  flex-direction: row;
+  border-style: outset;
+  border-width: 10px;
+  box-sizing: border-box;
+  border-color: goldenrod;
+  border-radius: 10px;
+  padding: 5px;
+  border-top-width: 10px;
+}
+
+.voldemortText {
   text-align: center;
-  font-size: 50px;
-  color: black;
+  font-size: 30px;
   font-weight: bold;
+  color: white;
 }
 
-#sortingHat {
-  text-align: center;
+#show {
+  display: none;
 }
 
 .card {
@@ -29,11 +104,29 @@
 
 #studentInput {
   text-align: center;
+  font-size: 20px;
+  color: white;
+  font-weight: bold;
+  margin-bottom: 20px;
 }
 
 .form-control {
   width: 20%;
   margin-left: 40%;
+}
+
+.floatingInput {
+  display: flex;
+  text-align: left;
+}
+
+.filterStudent {
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+#form-submit {
+  margin-bottom: 10px;
 }
 
 #all-btn {

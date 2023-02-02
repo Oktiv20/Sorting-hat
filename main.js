@@ -3,33 +3,31 @@ const students = [
     id: 1,
     name: "Harry",
     house: "Gryffindor",
-    // imageUrl:
-    //   "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgVdiN-_wZaHOQaOmcNOQV3tslILnvIbOxCzRHKWf7gV8jQZtHL7dfp9-2Fk2SpCNSo5dl0vFr6NKq2lZrauRkGQN9eXX1GL24_mGf43_qXSr7bZd-_q0btSQhDZCdw-YS7A5bCAcRdLXqd0CiHtsmPi_upb-Bd8dYEx86fse-hC9cqd7LJOOtwuVn3aQ/s750/gryffindor%20(1)-min.jpg",
+    houseColor: "red"
   },
   {
     id: 2,
     name: "Draco",
     house: "Slytherin",
-    // imageUrl:
-    //   "https://cdn11.bigcommerce.com/s-ydriczk/products/88362/images/91127/Harry-Potter-Slytherin-Crest-Official-wall-mounted-cardboard-cutout-buy-now-at-star__31920.1507640618.450.659.jpg?c=2",
+    houseColor: "green"
   },
   {
     id: 3,
     name: "Matilda",
     house: "Ravenclaw",
-    // imageUrl:
-    //   "https://www.seekpng.com/png/detail/184-1840811_ravenclaw-crest-harry-potter-harry-potter-ravenclaw-house.png",
+    houseColor: "purple"
   },
   {
     id: 4,
     name: "John",
     house: "Hufflepuff",
-    // imageUrl:
-    //   "https://www.pngitem.com/pimgs/m/484-4841260_printable-harry-potter-hufflepuff-hd-png-download.png",
+    houseColor: "yellow"
   },
 ];
 
 const voldemortStudents = [];
+
+
 
 // Render to DOM utility function
 const renderToDom = (divID, htmlToRender) => {
@@ -37,15 +35,28 @@ const renderToDom = (divID, htmlToRender) => {
   selectedDiv.innerHTML = htmlToRender;
 };
 
-// Create and put cards on the DOM
+// JS CODE TO HIDE AND SHOW FORM
+const form = document.querySelector("form")
+const toggleBtn = document.querySelector("#showForm");
+const divList = document.querySelector("#show");
+
+toggleBtn.addEventListener("click", () => {
+  console.log(toggleBtn)
+  if(divList.style.display === "none") {
+    divList.style.display = "block";
+  }
+});
+
+// FIRST YEAR & EXPELLED STUDENT CARD TEMPLATES
 //•••••FIRST YEAR STUDENTS•••••
 const renderStudents = (arr) => {
   let domString = "";
   for (const student of arr) {
-    domString += `<div class="card" style="width: 18rem;" margin-bottom: 0;> 
+    domString += `<div class="card" style="width: 13rem;" margin-bottom: 0;> 
     <header>${student.name}</header> 
     <div class="card-body">
       <div>${student.house}</div>
+      <div>${student.houseColor}</div>
       <button class="btn btn-danger" id="expel--${student.id}">Expel</button>
   </div>
 </div>`;
@@ -58,7 +69,10 @@ const renderStudents = (arr) => {
 const renderExpelledStudents = (arr) => {
   let domString = "";
   for (const student of arr) {
-    domString += `<div class="card" style="width: 18rem;" margin-bottom: 0;> 
+    domString += `<div class="card" style="width: 13rem;" margin-bottom: 0;>
+    <img src="images/voldemort.png" 
+    <p>Voldemort has a new soldier!</p>
+    <p>Death Eaters! Welcome,</p>
     <header>${student.name}</header>
   </div>
 </div>`;
@@ -67,12 +81,22 @@ const renderExpelledStudents = (arr) => {
   renderToDom("#voldemortsContainer", domString);
 };
 
-// function to filter animals by type
-const filter = (array, typeString) => {
+// Code to add house color to new students card
+let houseArray = ["Gryffindor", "Slytherin", "Hufflepuff", "Ravenclaw"];
+let houseColor = {
+  "red": "Gryffindor",
+  "green": "Slytherin",
+  "yellow": "Hufflepuff",
+  "purple": "Ravenclaw"
+};
+
+// FUNCTION TO FILTER STUDENTS BY HOUSE
+// Create a filter function(set to a variable) with arguments of the array (arr) and the string you want to filter by (houseString) and return a variable w/empty array
+const filter = (array, houseString) => {
   const personArray = [];
 
   for (const person of array) {
-    if (person.house === typeString) {
+    if (person.house === houseString) {
       personArray.push(person);
     }
   }
@@ -91,13 +115,13 @@ const showAllButton = document.querySelector("#all-btn");
 // 1. Get all the cards to render on the DOM
 renderStudents(students);
 
-// 2. Add click event to show all the animals on button click using the function we created above
+// 2. Add click event to show all the students on button click using the function we created above
 showAllButton.addEventListener("click", () => {
   console.log(students);
   renderStudents(students);
 });
 
-// 3. Add click event to filter all the animals by house on button click
+// 3. Add click event to filter all the students by house on button click
 gryffButton.addEventListener("click", () => {
   const allGryff = filter(students, "Gryffindor");
   console.log(allGryff);
@@ -124,10 +148,11 @@ slythButton.addEventListener("click", () => {
 
 //••••CREATE••••
 
-// 1. Creating new student and sorting student
+// 1. Create a new student function and a function that assigns new student to random house
 const newStudent = (event) => {
   event.preventDefault(); // EVERY TIME YOU CREATE A FORM
-
+  const house = houseArray[newStudent];
+// Create a function that uses an if...else statement with Math.random() to randomize the house for the student
   function randomStudent(max) {
     return Math.floor(Math.random() * max);
   }
@@ -143,16 +168,18 @@ const newStudent = (event) => {
       return "Slytherin";
     }
   }
-
+// Create a variable to give new student same properties as the template
   const sortStudent = {
     id: students.length + 1,
     name: document.querySelector("#name").value,
     house: assignRandom(),
+    houseColor: (houseColor[house])
   };
 
   console.log(sortStudent);
   students.push(sortStudent);
   renderStudents(students);
+  form.reset();
 };
 
 // 2. Add an event listener for the form submit and pass it the function (callback)
@@ -175,12 +202,13 @@ appDiv.addEventListener("click", (e) => {
     const [, studentid] = e.target.id.split("--");
 
     // 4. add logic to remove from array
-    // .findIndex is an array method
+    // Create a function set to a variable and use the findIndex() method to search through the student array and make sure it is equal to the id of the object(student) you want to "delete"
     const indexOfStudent = students.findIndex(
       (e) => e.id === Number(studentid)
     );
 
-    // .splice modifies the original array
+    // .splice() the deleted card out of the first array and then push it to the new array
+    // Use the splice() method set to a new variable to remove the "indexOfStudent" and .push(...) the new object(student) to the new array
     const bannedStudent = students.splice(indexOfStudent, 1);
     voldemortStudents.push(...bannedStudent);
     console.log(bannedStudent);
@@ -191,9 +219,9 @@ appDiv.addEventListener("click", (e) => {
   }
 });
 
-// const startApp = () => {
-//   renderStudents(students);
-// };
-// // events(); // ALWAYS LAST
+const startApp = () => {
+  renderStudents(students);
+};
+// events(); // ALWAYS LAST
 
-// startApp();
+startApp();
