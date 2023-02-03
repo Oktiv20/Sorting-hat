@@ -29,12 +29,12 @@
       </div>
       <!-- HTML CODE TO HIDE FORM -->
       <div id="show" style="display: none">
-        <form>
+        <form name ="studentForm" onsubmit="return validation();">
           <div id="studentInput" class="hideForm">
             <p class="first-year">Enter First Year's Name</p>
             <div class="floating-form mb-3">
               <label for="floatingInput">Student:</label>
-              <input type="text" class="form-control" id="name" placeholder="Name" required/>
+              <input type="text" class="form-control" id="name" placeholder="Name"/>
               <!-- Sort Button -->
               <button type="submit" class="btn btn-primary" id="form-submit">
                 Sort!
@@ -42,8 +42,9 @@
             </div>
           </div>
         </form>
+      </div>
         <!-- Sorting Button Group -->
-        <p class="filterStudent">Filter Students</p>
+      <div class="filterStudent">Filter Students
         <div class="filterContainer">
           <div class="btn-group" role="group" aria-label="Basic example">
             <button type="button" id="all-btn" class="btn btn-secondary">
@@ -63,15 +64,16 @@
             </button>
           </div>
         </div>
+      </div>
         <div class="allContainers">
           <div id="firstYearContainter">
             <p class="firstYearText">FIRST YEAR STUDENTS</p>
           </div>
           <div id="voldemortsContainer">
-            <P class="voldemortText">VOLDEMORT'S ARMY</P>
+            <p class="voldemortText">VOLDEMORT'S ARMY</p>
           </div>
         </div>
-      </div>
+      <!-- </div> -->
     </header>
     <script
       src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
