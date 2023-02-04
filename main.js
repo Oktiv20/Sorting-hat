@@ -25,7 +25,12 @@ const students = [
   },
 ];
 
-const voldemortStudents = [];
+const voldemortStudents = [
+  {
+    id: 1,
+    name: "Bellatrix Lestrange"
+  }
+];
 
 
 
@@ -47,17 +52,13 @@ toggleBtn.addEventListener("click", () => {
   }
 });
 
-function validation(){ 
-  if (document.studentForm.name.value == "") {
-    document.getElementById("floating-form mb-3").innerHTML="*Please enter a username*";
-    return false;
-    }
-  };
-
-
-
-
-
+// function validation(){ 
+//   let error = form.getElementById("name").value;
+//    if (error === "") {
+//     alert("Name must be filled out");
+//     return false;
+//    }
+//   };
 
 // FIRST YEAR & EXPELLED STUDENT CARD TEMPLATES
 //•••••FIRST YEAR STUDENTS•••••
@@ -65,17 +66,16 @@ const renderStudents = (arr) => {
   let domString = "";
   for (const student of arr) {
     domString += `<div class="card" style="width: 13rem;" margin-bottom: 0;> 
-    <header>${student.name}</header>
+    <header style="background-color: lightgray">${student.name}</header>
     <div class="card-color" style="background-color:${student['houseColor']};</div> 
     <div class="card-body">
       <div>${student.house}</div>
-      <div>${student.houseColor}</div>
       <button class="btn btn-danger" id="expel--${student.id}">Expel</button>
   </div>
 </div>`;
   }
 
-  renderToDom("#firstYearContainter", domString);
+  renderToDom(".firstYearContainter", domString);
 };
 
 //•••••EXPELLED STUDENTS•••••
@@ -89,17 +89,8 @@ const renderExpelledStudents = (arr) => {
 </div>`;
   }
 
-  renderToDom("#voldemortsContainer", domString);
+  renderToDom(".voldemortsContainer", domString);
 };
-
-// Code to add house color to new students card
-// let houseList = ["Gryffindor", "Slytherin", "Hufflepuff", "Ravenclaw"];
-// let houseAlliance = {
-//   "Gryffindor": "red",
-//   "Slytherin": "green",
-//   "Hufflepuff": "yellow",
-//   "Ravenclaw": "purple"
-// }
 
 // FUNCTION TO FILTER STUDENTS BY HOUSE
 // Create a filter function(set to a variable) with arguments of the array (arr) and the string you want to filter by (houseString) and return a variable w/empty array
@@ -125,6 +116,7 @@ const showAllButton = document.querySelector("#all-btn");
 
 // 1. Get all the cards to render on the DOM
 renderStudents(students);
+renderExpelledStudents(voldemortStudents);
 
 // 2. Add click event to show all the students on button click using the function we created above
 showAllButton.addEventListener("click", () => {
@@ -157,25 +149,34 @@ slythButton.addEventListener("click", () => {
   renderStudents(allSlytherin);
 });
 
+// Code to add house color to new students card
+// let houseList = ["Gryffindor", "Slytherin", "Hufflepuff", "Ravenclaw"];
+// let houseAlliance = {
+//   "Gryffindor": "red",
+//   "Slytherin": "green",
+//   "Hufflepuff": "yellow",
+//   "Ravenclaw": "purple"
+// }
+
 //••••CREATE••••
 
 // 1. Create a new student function and a function that assigns new student to random house
 const newStudent = (event) => {
   event.preventDefault(); // EVERY TIME YOU CREATE A FORM
-  // const house = houseList[randomStudent];
+  // const houseRep = houseList[];
 // Create a function that uses an if...else statement with Math.random() to randomize the house for the student
   function randomStudent(max) {
     return Math.floor(Math.random() * max);
   }
 
   function assignRandom() {
-    if (randomStudent(4) === 0) {
+    if (randomStudent(4) === 1) {
       return "Gryffindor";
-    } else if (randomStudent(4) === 1) {
+    } else if (randomStudent(3) === 2) {
       return "Hufflepuff";
-    } else if (randomStudent(4) === 2) {
+    } else if (randomStudent(3) === 3) {
       return "Ravenclaw";
-    } else if (randomStudent(4) === 3) {
+    } else if (randomStudent(3) === 4) {
       return "Slytherin";
     }
   }
@@ -185,10 +186,10 @@ const newStudent = (event) => {
   const sortStudent = {
     id: students.length + 1,
     name: document.querySelector("#name").value,
-    house: assignRandom(),
-    // houseColor: (houseAlliance[house])  
+    house: assignRandom()
   };
   
+  // houseColor: (houseAlliance[houseRep])
 
   console.log(sortStudent);
   students.push(sortStudent);
@@ -204,7 +205,7 @@ submitButton.addEventListener("click", newStudent);
 // ••••DELETE••••
 
 // 1. Target the app div
-const appDiv = document.querySelector("#firstYearContainter");
+const appDiv = document.querySelector(".firstYearContainter");
 
 // 2. Add an event listener to capture clicks
 
