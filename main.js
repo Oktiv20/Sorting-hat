@@ -3,36 +3,34 @@ const students = [
     id: 1,
     name: "Harry",
     house: "Gryffindor",
-    houseColor: "red"
+    houseColor: "red",
   },
   {
     id: 2,
     name: "Draco",
     house: "Slytherin",
-    houseColor: "green"
+    houseColor: "green",
   },
   {
     id: 3,
     name: "Matilda",
     house: "Ravenclaw",
-    houseColor: "purple"
+    houseColor: "purple",
   },
   {
     id: 4,
     name: "John",
     house: "Hufflepuff",
-    houseColor: "yellow"
+    houseColor: "yellow",
   },
 ];
 
 const voldemortStudents = [
   {
     id: 1,
-    name: "Bellatrix Lestrange"
-  }
+    name: "Bellatrix Lestrange",
+  },
 ];
-
-
 
 // Render to DOM utility function
 const renderToDom = (divID, htmlToRender) => {
@@ -41,18 +39,18 @@ const renderToDom = (divID, htmlToRender) => {
 };
 
 // JS CODE TO HIDE AND SHOW FORM
-const form = document.querySelector("form")
+const form = document.querySelector("form");
 const toggleBtn = document.querySelector("#showForm");
 const divList = document.querySelector("#show");
 
 toggleBtn.addEventListener("click", () => {
-  console.log(toggleBtn)
-  if(divList.style.display === "none") {
+  console.log(toggleBtn);
+  if (divList.style.display === "none") {
     divList.style.display = "block";
   }
 });
 
-// function validation(){ 
+// function validation(){
 //   let error = form.getElementById("name").value;
 //    if (error === "") {
 //     alert("Name must be filled out");
@@ -67,7 +65,7 @@ const renderStudents = (arr) => {
   for (const student of arr) {
     domString += `<div class="card" style="width: 13rem;" margin-bottom: 0;> 
     <header style="background-color: lightgray">${student.name}</header>
-    <div class="card-color" style="background-color:${student['houseColor']};</div> 
+    <div class="card-color" style="background-color:${student["houseColor"]};</div> 
     <div class="card-body">
       <div>${student.house}</div>
       <button class="btn btn-danger" id="expel--${student.id}">Expel</button>
@@ -164,31 +162,30 @@ slythButton.addEventListener("click", () => {
 const newStudent = (event) => {
   event.preventDefault(); // EVERY TIME YOU CREATE A FORM
   // const houseRep = houseList[];
-// Create a function that uses an if...else statement with Math.random() to randomize the house for the student
+  // Create a function that uses an if...else statement with Math.random() to randomize the house for the student
   function randomStudent(max) {
     return Math.floor(Math.random() * max);
   }
 
   function assignRandom() {
-    if (randomStudent(4) === 1) {
+    if (randomStudent(3) === 0) {
       return "Gryffindor";
-    } else if (randomStudent(3) === 2) {
+    } else if (randomStudent(3) === 1) {
       return "Hufflepuff";
-    } else if (randomStudent(3) === 3) {
+    } else if (randomStudent(3) === 2) {
       return "Ravenclaw";
-    } else if (randomStudent(3) === 4) {
+    } else if (randomStudent(3) === 3) {
       return "Slytherin";
     }
   }
 
-  
-// Create a variable to give new student same properties as the template
+  // Create a variable to give new student same properties as the template
   const sortStudent = {
     id: students.length + 1,
     name: document.querySelector("#name").value,
-    house: assignRandom()
+    house: assignRandom(),
   };
-  
+
   // houseColor: (houseAlliance[houseRep])
 
   console.log(sortStudent);
@@ -225,7 +222,7 @@ appDiv.addEventListener("click", (e) => {
     // .splice() the deleted card out of the first array and then push it to the new array
     // Use the splice() method set to a new variable to remove the "indexOfStudent" and .push(...) the new object(student) to the new array
     const bannedStudent = students.splice(indexOfStudent, 1);
-    voldemortStudents.push(...bannedStudent);
+    voldemortStudents.push(...bannedStudent); //Used the spread operater(unpacks the elements of an iterable object)
     console.log(bannedStudent);
 
     // 6. Repaint the DOM with the updated array

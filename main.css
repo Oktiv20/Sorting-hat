@@ -68,11 +68,10 @@ body {
   min-width: 50%;
   text-align: center;
   justify-content: space-between;
-  /* flex-grow: 1; */
   border: 5px solid black;
 }
 
-.firstYearContainter {
+.firstYearContainter, .voldemortsContainer {
   display: flex;
   flex-wrap: wrap;
   flex-direction: row;
@@ -81,30 +80,13 @@ body {
   margin-top: 2%;
 }
 
-.voldemortsContainer {
-  display: flex;
-  flex-wrap: wrap;
-  flex-direction: row;
-  align-self: flex-end;
-  justify-content: space-between;
-  margin-top: 2%;
-}
-
-.firstYearText {
+.firstYearText, .voldemortText {
   text-align: center;
   font-size: 30px;
   font-weight: bold;
   color: black;
   margin: 0%;
   position: absolute;
-}
-
-.voldemortText {
-  text-align: center;
-  font-size: 30px;
-  font-weight: bold;
-  color: black;
-  padding: 0%;
 }
 
 #show {
@@ -147,11 +129,6 @@ body {
 .form-control {
   width: 20%;
   margin-left: 1%;
-}
-
-.floatingInput {
-  /* display: flex; */
-  text-align: left;
 }
 
 #form-submit {
