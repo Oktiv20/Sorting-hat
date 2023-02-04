@@ -196,8 +196,8 @@ const newStudent = (event) => {
 
 // 2. Add an event listener for the form submit and pass it the function (callback)
 
-const submitButton = document.querySelector("#form-submit");
-submitButton.addEventListener("click", newStudent);
+const submitButton = document.querySelector("#form");
+submitButton.addEventListener("submit", newStudent);
 
 // ••••DELETE••••
 
