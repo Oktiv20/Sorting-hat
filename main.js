@@ -50,13 +50,6 @@ toggleBtn.addEventListener("click", () => {
   }
 });
 
-// function validation(){
-//   let error = form.getElementById("name").value;
-//    if (error === "") {
-//     alert("Name must be filled out");
-//     return false;
-//    }
-//   };
 
 // FIRST YEAR & EXPELLED STUDENT CARD TEMPLATES
 //•••••FIRST YEAR STUDENTS•••••
@@ -126,7 +119,7 @@ showAllButton.addEventListener("click", () => {
 gryffButton.addEventListener("click", () => {
   const allGryff = filter(students, "Gryffindor");
   console.log(allGryff);
-  renderStudents(allGryff);
+  // renderStudents(allGryff);
 });
 
 huffButton.addEventListener("click", () => {
@@ -168,25 +161,23 @@ const newStudent = (event) => {
   }
 
   function assignRandom() {
-    if (randomStudent(3) === 0) {
-      return "Gryffindor";
-    } else if (randomStudent(3) === 1) {
-      return "Hufflepuff";
-    } else if (randomStudent(3) === 2) {
-      return "Ravenclaw";
-    } else if (randomStudent(3) === 3) {
-      return "Slytherin";
-    }
-  }
+    if (randomStudent(4) === 0) {
+      return "Gryffindor"
+    } else if (randomStudent(4) === 1) {
+      return "Hufflepuff"
+    } else if (randomStudent(4) === 2) {
+      return "Ravenclaw"
+    } else {
+      return "Slytherin"
+    };
+  };
 
   // Create a variable to give new student same properties as the template
   const sortStudent = {
     id: students.length + 1,
     name: document.querySelector("#name").value,
-    house: assignRandom(),
+    house: assignRandom()
   };
-
-  // houseColor: (houseAlliance[houseRep])
 
   console.log(sortStudent);
   students.push(sortStudent);
@@ -196,8 +187,9 @@ const newStudent = (event) => {
 
 // 2. Add an event listener for the form submit and pass it the function (callback)
 
-const submitButton = document.querySelector("#form");
-submitButton.addEventListener("submit", newStudent);
+const sortButton = document.querySelector("#form-submit");
+sortButton.addEventListener("click", newStudent);
+console.log(sortButton);
 
 // ••••DELETE••••
 
